@@ -3,15 +3,6 @@ const result = document.querySelector("h1");
 const number = document.querySelector("#inputResult");
 const button = document.querySelector("#submit");
 const backgroundChange = document.querySelector(".wrapper");
-const pause = document.querySelector("#pause");
-let num = 0;
-
-// const loadEvent = function() {
-//   pause.addEventListener("click", pauseTime());
-// };
-
-// loadEvent();
-
 form.addEventListener("submit", e => {
   e.preventDefault();
   value = Math.round(number.value);
@@ -31,10 +22,6 @@ form.addEventListener("submit", e => {
 
       result.innerHTML = value;
       value -= 1;
-      if (pause.innerTextL == "Resume") {
-        alert("working");
-      }
-      num = value;
       if (value < 0) {
         button.removeAttribute("disabled");
         clearInterval(x);
@@ -44,12 +31,7 @@ form.addEventListener("submit", e => {
       }
       result.innerHTML = value;
     }, 1000);
-    pause.addEventListener("click", function() {
-      clearInterval(x);
-      pause.innerHTML = "Resume";
-      result.innerHTML = num;
-    });
   } else {
-    alert("enter a valid value");
+    alert("enter a number between 1 and 1000");
   }
 });
